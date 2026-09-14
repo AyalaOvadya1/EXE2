@@ -1,5 +1,6 @@
 from functools import reduce
 import time
+from datetime import datetime, timedelta
 
 ##1
 
@@ -76,3 +77,11 @@ def main():
 
 if __name__ == '__main__':
         main()
+
+##4
+
+#4.א
+def dates(my_date, num1, num2):
+    start_date = datetime.strptime(my_date, "%d/%m/%Y")
+    return list(map(lambda i: (start_date + timedelta(days=i * num2)).strftime("%d/%m/%Y"),
+        range(num1),))
