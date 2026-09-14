@@ -54,3 +54,25 @@ odd_func = reduce(odd_lambda, odds , 0)
 final_sum = reduce(lambda x,y : x+y , [even_func,int(odd_func)])
 
 
+##3
+
+#3.א
+def is_armstrong(n):
+    k = len(str(n))
+    digits_sum = sum(int(digit)**k for digit in str(n))
+    return digits_sum == n
+
+#3.ב
+def armstrong_range(n1, n2):
+    return list(filter(is_armstrong, range(n1, n2+1)))
+
+#3.ג
+def main():
+    my_input = input("Enter a number:\n")
+    if not my_input.isdigit() or int(my_input)<=0:
+        print("invalid input")
+    else:
+        print(armstrong_range(1,int(my_input)))
+
+if __name__ == '__main__':
+        main()
