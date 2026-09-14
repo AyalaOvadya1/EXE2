@@ -26,7 +26,6 @@ for x in newlist:
 end_imp = time.time()
 time_imperative = end_imp - start_imp
 
-
 #print(f"זמן ריצה פונקציונלי: {time_functional:.6f} שניות")
 #print(f"זמן ריצה אימפרטיבי: {time_imperative:.6f} שניות")
 
