@@ -69,15 +69,13 @@ def armstrong_range(n1, n2):
     return list(filter(is_armstrong, range(n1, n2+1)))
 
 #3.ג
-def main():
+def main_q3():
     my_input = input("Enter a number:\n")
     if not my_input.isdigit() or int(my_input)<=0:
         print("invalid input")
     else:
         print(armstrong_range(1,int(my_input)))
 
-if __name__ == '__main__':
-        main()
 
 ##4
 
@@ -88,6 +86,7 @@ def dates(my_date, num1, num2):
         range(num1),))
 
 ##5
+
 #5.א
 def power_function(exponent):
     return lambda base: base**exponent
@@ -97,7 +96,7 @@ def get_power_functions(n):
     return map(power_function, range(n))
 
 
-if __name__ == "__main__":
+def main_q5():
     n = int(input("Enter number of powers:\n"))
     result = get_power_functions(n)
 
@@ -137,7 +136,7 @@ def task_manager():
     }
 
 
-if __name__ == '__main__':
+def main_q6():
     tasks_manager = task_manager()
 
     tasks_manager['add_task']("Write email")
@@ -154,6 +153,7 @@ if __name__ == '__main__':
 
 
 ##7
+
 #7.א
 def clean_spaces(text):
     return text.strip()
@@ -174,9 +174,8 @@ def add_to_pipeline(pipeline_fn, new_fn):
 
 
 #7.ג
-def main():
+def main_q7():
     pipeline = create_pipeline()
-
     pipeline = add_to_pipeline(pipeline, clean_spaces)
     pipeline = add_to_pipeline(pipeline, capitalize_text)
     pipeline = add_to_pipeline(pipeline, add_stars)
@@ -190,4 +189,7 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main_q3()
+    main_q5()
+    main_q6()
+    main_q7()
