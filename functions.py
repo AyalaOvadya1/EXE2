@@ -151,3 +151,43 @@ if __name__ == '__main__':
 
     current_tasks = tasks_manager['get_tasks']()
     print(current_tasks)
+
+
+##7
+#7.א
+def clean_spaces(text):
+    return text.strip()
+
+def capitalize_text(text):
+    return text.title()
+
+def add_stars(text):
+    return f"***{text}***"
+
+
+#7.ב
+def create_pipeline():
+    return lambda x: x
+
+def add_to_pipeline(pipeline_fn, new_fn):
+    return lambda x: new_fn(pipeline_fn(x))
+
+
+#7.ג
+def main():
+    pipeline = create_pipeline()
+
+    pipeline = add_to_pipeline(pipeline, clean_spaces)
+    pipeline = add_to_pipeline(pipeline, capitalize_text)
+    pipeline = add_to_pipeline(pipeline, add_stars)
+
+    user_input = input("enter text:\n")
+
+    if not user_input.strip():
+        print("invalid input")
+    else:
+        print(pipeline(user_input))
+
+
+if __name__ == '__main__':
+    main()
