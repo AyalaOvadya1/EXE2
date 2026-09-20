@@ -114,3 +114,40 @@ def taylor_e(x, n):
         lambda k, f: f(x) / math.factorial(k), range(n), get_power_functions(n)
     )
     return sum(terms)
+
+
+##6
+def task_manager():
+    tasks = {}
+
+    def add_task(task, status="incomplete"):
+        tasks[task] = status
+
+    def get_tasks():
+        return tasks
+
+    def complete_task(task):
+        if task in tasks:
+            tasks[task] = "complete"
+
+    return {
+        'add_task': add_task,
+        'get_tasks': get_tasks,
+        'complete_task': complete_task
+    }
+
+
+if __name__ == '__main__':
+    tasks_manager = task_manager()
+
+    tasks_manager['add_task']("Write email")
+    tasks_manager['add_task']("Shopping", "in progress")
+    tasks_manager['add_task']("Homework")
+
+    current_tasks = tasks_manager['get_tasks']()
+    print(current_tasks)
+
+    tasks_manager['complete_task']("Write email")
+
+    current_tasks = tasks_manager['get_tasks']()
+    print(current_tasks)
