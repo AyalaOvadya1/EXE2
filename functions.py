@@ -1,6 +1,7 @@
 from functools import reduce
 import time
 from datetime import datetime, timedelta
+import math
 
 ##1
 
@@ -85,3 +86,31 @@ def dates(my_date, num1, num2):
     start_date = datetime.strptime(my_date, "%d/%m/%Y")
     return list(map(lambda i: (start_date + timedelta(days=i * num2)).strftime("%d/%m/%Y"),
         range(num1),))
+
+##5
+#5.א
+def power_function(exponent):
+    return lambda base: base**exponent
+
+#5.ב
+def get_power_functions(n):
+    return map(power_function, range(n))
+
+
+if __name__ == "__main__":
+    n = int(input("Enter number of powers:\n"))
+    result = get_power_functions(n)
+
+    print(type(result))
+
+    base = int(input("Enter base:\n"))
+
+    print(tuple(map(lambda f: f(base), result)))
+
+
+#5.ג
+def taylor_e(x, n):
+    terms = map(
+        lambda k, f: f(x) / math.factorial(k), range(n), get_power_functions(n)
+    )
+    return sum(terms)
